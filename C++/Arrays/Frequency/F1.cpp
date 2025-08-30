@@ -3,7 +3,6 @@
 #include<unordered_map>
 using namespace std;
 
-
 int frequency(vector<int>& arr){
     unordered_map<int,int> freq;
 

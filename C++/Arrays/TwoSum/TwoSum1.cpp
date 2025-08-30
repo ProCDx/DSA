@@ -1,41 +1,26 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
+//Time complexity- o(n^2)
+#include<bits/stdc++.h>;
 using namespace std;
 
-class Solution {
-public:
-    vector<int> twoSum(vector<int> nums, int target) {
-        unordered_map<int, int> hashTable; // value → index
-
-        for (int i = 0; i < (int)nums.size(); i++) {
-            int complement = target - nums[i];
-
-            // Check if complement exists
-            if (hashTable.count(complement)) {
-                return {hashTable[complement], i};
+vector<int> twoSum(vector<int> &arr,int target){
+    int n=arr.size();
+    vector<int> ans;
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(arr[i]+arr[j]==target){
+                ans.push_back(i);
+                ans.push_back(j);
+                return ans;
             }
-
-            // Store current number with its index
-            hashTable[nums[i]] = i;
         }
-
-        return {}; // no solution found
     }
-};
+    return {-1,-1};
+}
 
-int main() {
-    Solution sol;
-    vector<int> nums = {2, 7, 11, 15};
-    int target = 9;
-
-    vector<int> result = sol.twoSum(nums, target);
-
-    if (!result.empty()) {
-        cout << "Indices: " << result[0] << ", " << result[1] << endl;
-    } else {
-        cout << "No solution found." << endl;
-    }
-
+int main(){
+    vector<int> arr={2,6,5,8,11};
+    int target=14;
+    vector<int> ans=twoSum(arr,target);
+    cout<<"The indices for two sum are : "<<ans[0]<<" and " <<ans[1]<< endl;
     return 0;
 }
