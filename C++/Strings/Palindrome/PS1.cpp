@@ -1,4 +1,4 @@
-
+//O(log10N + 1) Time complexity
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -27,5 +27,4 @@ int main(){
         cout<<num<<" is not a palindrome."<<endl;
     }
     return 0;
-
 }
