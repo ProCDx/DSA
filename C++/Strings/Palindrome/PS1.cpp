@@ -1,18 +1,31 @@
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
-int ispalindrome(string &s){
-    int l=s.length();
-    for (int i=0;i<l/2;i++){
-        if(s[i]!=s[l-i-1])
-            return 0;
+bool ispalindrome(int num){
+    int revNum=0;
+    int temp=num;
+    while(num>0){
+        int ld=num%10;
+        revNum=(revNum*10)+ld;
+        num=num/10;
     }
-    return 1;
+    if(temp==revNum){
+        return true;
+    }else{
+        return false;
+    }
+
 }
 int main(){
-    string s1="abba";
-    cout<<ispalindrome(s1)<<endl;
-    string s2="abc";
-    cout<<ispalindrome(s2)<<endl;
+    int num=4554;
+    bool ans=ispalindrome(num);
+    if(ans==true){
+        cout<<num <<" is a palindrome."<<endl;
+    }else{
+        cout<<num<<" is not a palindrome."<<endl;
+    }
     return 0;
+
 }
